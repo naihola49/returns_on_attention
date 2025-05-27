@@ -1,4 +1,4 @@
-# attention-and-returns 
+# Attention Is All You Need (For Deep Pockets) 
 
 > Forecasting financial markets with attention-based deep learning
 
@@ -34,6 +34,13 @@ This project explores the use of Transformer architectures to forecast the distr
 - **Normalization:** Applied log-transforms and `StandardScaler` to handle outliers and skewed distributions
 - **Windowing Strategy:** Used 30-day rolling sequences to capture temporal signals
 
+### Feature Engineering
+- **Momentum Indicators:** RSI, MACD, ROC — engineered to reflect short-term trend signals
+- **Volatility Metrics:** ATR, Bollinger Bands — to capture tail risk and extreme movement potential
+- **Regime Embeddings:** Regime cluster labels learned from unsupervised PCA/K-means were fed into the model as features
+- **Calendar Effects:** One-hot encoded weekday dummies (e.g., `is_monday`, `is_tuesday`) added to capture cyclical patterns
+- **Time-Lagging Windows:** Created 30-day rolling sequences to give the model temporal depth and capture lead-lag effects between predictors and returns
+
 ### Transformer Model
 
 - **Architecture:**
@@ -53,16 +60,9 @@ This project explores the use of Transformer architectures to forecast the distr
 - **Generalization:** Low train-validation gap, <8% MAE difference
 - **Simulation:** Transformer model yielded better performance in short-horizon trading, validating attention-based quantile forecasts for financial use
 
-## 📈 Trading Simulator
+## Trading Simulator
 
 We built a custom trading simulator to test if the predicted quantile ranges could be used to drive trading decisions. While performance gains diminished over longer horizons, our results were promising for short-term strategies.
-
-## Future Work
-
-- Implement rolling window retraining to adapt to evolving market regimes
-- Scale the framework to multi-asset portfolios
-- Explore causal modeling to improve robustness to exogenous shocks
-
 
 
 
