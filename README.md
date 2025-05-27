@@ -28,7 +28,7 @@ This project explores the use of Transformer architectures to forecast the distr
 
 ## Key Methodologies
 
-### 📊 Exploratory Data Analysis
+### Exploratory Data Analysis
 
 - **Multicollinearity Reduction:** Removed redundant OHLCV features; retained Close prices only
 - **Normalization:** Applied log-transforms and `StandardScaler` to handle outliers and skewed distributions
